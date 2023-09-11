@@ -1,0 +1,13 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-fluid-2);
+
+  margin:var(--size-fluid-3)  0 ;
+}
+
+.form__error {
+  color: var(--red-8);
+  margin:var(--size-fluid-3)  0;
+  text-align: center;
+}
