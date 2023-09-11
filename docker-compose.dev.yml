@@ -9,18 +9,27 @@ services:
 
     # Set environment variables directly in the docker-compose file
     environment:
-      ENV_VARIABLE: ${ENV_VARIABLE}
-      NEXT_PUBLIC_ENV_VARIABLE: ${NEXT_PUBLIC_ENV_VARIABLE}
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      DYNAMO_DB_ENDPOINT: ${DYNAMO_DB_ENDPOINT}
+      DYNAMO_DB_REGION: ${DYNAMO_DB_REGION}
 
     # Set envrionment variables based on the .env file
     env_file:
       - .env
     volumes:
-      - ./next-app/src:/app/src
-      - ./next-app/public:/app/public
+      - ./next-app:/app
     restart: always
     ports:
       - 3000:3000
+    networks:
+      - brain_network
+  dynamodb:
+    container_name: dynamodb
+    image: amazon/dynamodb-local
+    command: -jar DynamoDBLocal.jar -sharedDb
+    ports:
+      - 8000:8000
     networks:
       - brain_network
 

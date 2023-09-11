@@ -7,11 +7,21 @@ services:
       context: ./next-app
       dockerfile: prod.Dockerfile
       args:
-        ENV_VARIABLE: ${ENV_VARIABLE}
-        NEXT_PUBLIC_ENV_VARIABLE: ${NEXT_PUBLIC_ENV_VARIABLE}
+        AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+        AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+        DYNAMO_DB_ENDPOINT: ${DYNAMO_DB_ENDPOINT}
+        DYNAMO_DB_REGION: ${DYNAMO_DB_REGION}
     restart: always
     ports:
       - 3000:3000
+    networks:
+      - brain_network
+  dynamodb:
+    container_name: dynamodb
+    image: amazon/dynamodb-local
+    command: -jar DynamoDBLocal.jar -sharedDb
+    ports:
+      - 8000:8000
     networks:
       - brain_network
 

@@ -19,14 +19,14 @@ COPY tsconfig.json .
 
 # Next.js collects completely anonymous telemetry data about general usage. Learn more here: https://nextjs.org/telemetry
 # Uncomment the following line to disable telemetry at run time
-# ENV NEXT_TELEMETRY_DISABLED 1
+ENV NEXT_TELEMETRY_DISABLED 1
 
 # Note: Don't expose ports here, Compose will handle that for us
 
 # Start Next.js in development mode based on the preferred package manager
 CMD \
-  if [ -f yarn.lock ]; then yarn dev; \
-  elif [ -f package-lock.json ]; then npm run dev; \
-  elif [ -f pnpm-lock.yaml ]; then pnpm dev; \
-  else yarn dev; \
+  if [ -f yarn.lock ]; then yarn db:setup && yarn dev; \
+  elif [ -f package-lock.json ]; then  npm run db:setup && npm run dev; \
+  elif [ -f pnpm-lock.yaml ]; then pnpm db:setup && pnpm dev; \
+  else yarn db:setup && yarn dev; \
   fi
