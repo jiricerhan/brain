@@ -3,14 +3,31 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "gql:codegenServer": "graphql-codegen --config ./src/modules/graphql/graphqlServer/types/codegen.yml",
+    "gql:codegenClient": "graphql-codegen --config ./src/modules/graphql/graphqlClient/types/codegen.yml",
+    "gql:codegen": "yarn gql:codegenServer && yarn gql:codegenClient",
+    "typescript:check": "tsc --noEmit",
+    "db:setup": "node ./src/modules/db/setup.mjs"
   },
   "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.409.0",
+    "graphql": "^16.8.0",
+    "graphql-request": "^6.1.0",
+    "graphql-yoga": "^4.0.4",
+    "nanoid": "^4.0.2",
     "next": "latest",
+    "open-props": "^1.5.15",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-toggle-dark-mode": "^1.1.1"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^5.0.0",
+    "@graphql-codegen/typescript": "^4.0.1",
+    "@graphql-codegen/typescript-graphql-request": "^5.0.0",
+    "@graphql-codegen/typescript-operations": "^4.0.1",
+    "@graphql-codegen/typescript-resolvers": "^4.0.1",
     "@types/node": "^18.11.9",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.9",
