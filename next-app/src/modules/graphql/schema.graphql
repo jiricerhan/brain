@@ -1,0 +1,14 @@
+type Query {
+  healthCheck: String
+}
+
+type Mutation {
+  addSpend(amount: Float!, date: String!, platform: String!): Spend
+}
+
+type Spend {
+  id: String!
+  amount: Float!
+  date: String!
+  platform: String!
+}

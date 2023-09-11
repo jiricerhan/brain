@@ -1,0 +1,8 @@
+mutation AddSpend($amount: Float!, $date: String!, $platform: String!) {
+  addSpend(amount: $amount, date: $date, platform: $platform) {
+    id
+    amount
+    date
+    platform
+  }
+}

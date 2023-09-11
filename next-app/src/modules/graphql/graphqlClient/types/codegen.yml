@@ -1,0 +1,14 @@
+
+schema: "./src/modules/graphql/schema.graphql"
+documents:
+  - './src/modules/graphql/graphqlClient/queries/*.graphql'
+generates:
+  ./src/modules/graphql/graphqlClient/types/generated-types.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-graphql-request
+    config:
+      onlyOperationTypes: true
+      maybeValue: 'T'
+      skipTypename: true
