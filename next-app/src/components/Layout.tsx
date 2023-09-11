@@ -14,14 +14,12 @@ type Props = {
 const Layout = ({ children, title, theme, onThemeChange }: Props) => {
   const titleText = `${title} | Brain interview project`;
 
-  console.log(theme);
-
   return (
     <div className={styles.container} data-theme={theme}>
       <Head>
         <title>{titleText}</title>
         <link rel="icon" href="/favicon.ico" />
-        <link rel="manifest" href="/manifest.json" />
+        <link rel="manifest" href="site.webmanifest" />
       </Head>
 
       <header className={styles.header}>
