@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Chart from "./Chart";
 
 type Props = {
-  chartPath: string;
+  chartPath: string | null;
 };
 
 const ChartContainer = ({ chartPath: initialChartPath }: Props) => {

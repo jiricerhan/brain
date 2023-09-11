@@ -2,8 +2,8 @@ import ChartContainer from "./ChartContainer";
 import Dashboard from "./Dashboard";
 import LayoutContainer from "@components/LayoutContainer";
 
-type Props = {
-  chartPath: string;
+export type Props = {
+  chartPath: string | null;
 };
 
 const DashboardContainer = ({ chartPath }: Props) => {

@@ -3,7 +3,7 @@ import Admin from "./Admin";
 import FormContainer from "./FormContainer";
 import LayoutContainer from "@components/LayoutContainer";
 
-type Props = {
+export type Props = {
   spends: Spend[];
 };
 

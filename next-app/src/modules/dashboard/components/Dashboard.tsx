@@ -1,4 +1,3 @@
-import Layout from "@components/Layout";
 import React from "react";
 
 type Props = {
