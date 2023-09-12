@@ -13,7 +13,7 @@ type Props = {
 
 const Layout = ({ children, title, theme, onThemeChange }: Props) => {
   const titleText = `${title} | Brain interview project`;
-
+  console.log(theme);
   return (
     <div className={styles.container} data-theme={theme}>
       <Head>
